@@ -6,7 +6,12 @@
   },
   {
     "name": "Fabric API",
-    "filename": "[OPTIMIZACION]fabric-api-0.92.12+1.20.1[INCARIAS MC].jar",
+    "filename": "[OPTIMIZACION][1.20.1]Fabric API 0.92.12+1.20.1[INCARIAS MC].jar",
     "download_url": "https://cdn.modrinth.com/data/P7dR8mSH/versions/rvI2dfzR/fabric-api-0.92.12%2B1.20.1.jar?mr_download_reason=standalone&mr_game_version=1.20.1"
+  },
+  {
+    "name": "Mod Menu",
+    "filename": "[OPTIMIZACION]mod-menu-v7.2.2-for-1.20.1[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/mOgUt4GM/versions/lEkperf6/modmenu-7.2.2.jar?mr_download_reason=standalone&mr_game_version=1.20.1&mr_loader=fabric"
   }
 ]
