@@ -1,10 +1,17 @@
-use std::{fs::File, io::Write, path::Path};
 use serde::{Deserialize};
 
+mod proceso_online;
+mod proceso_local;
+
+use proceso_online::*;
+
+pub const PROGRAM_VERSION: &str = "dev 0.0.1";
+
+pub const OFFICIAL_LIST_FILE: &str = "official_list.txt";
 
 
 #[derive(Debug, Deserialize)]
-struct ModInfo {
+pub struct ModInfo {
     name: String,
     filename: String,
     download_url: String
@@ -12,61 +19,23 @@ struct ModInfo {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    //proceso_de_descarga().await?;
 
-    let manifiesto = "https://raw.githubusercontent.com/javierulloajs-cyber/Mods-Updater-for-IncariasForever-MC/main/mods.json";
+    // LOCAL
+    let modpacks_ruta = proceso_local::obtener_ruta_modpacks();
 
-    let mods_folder = Path::new("./mods");
+    // Dentro hay un aviso en caso de que no pueda devolver el directorio del modpack
+    let modpack_folder = proceso_local::obtener_directorio_correcto(&modpacks_ruta)?;
 
-    if !mods_folder.exists() {
-        tokio::fs::create_dir_all(mods_folder).await?;
+    for item in proceso_local::obtener_local_lista_mods(&modpack_folder)? {
+        println!("Mod: {}", item);
     }
 
-    println!("Obteniendo lista de mods...");
+    // ONLINE
+    proceso_de_descarga(&modpack_folder).await?;
 
-    let cliente = reqwest::Client::builder()
-        .user_agent("IncariasForever-ModsUpdater/2.0.0 (https://github.com/javierulloajs-cyber)")
-        .build()?;
+    proceso_local::eliminar_mods_absoletos(&modpack_folder)?;
 
-    let mods: Vec<ModInfo> = cliente.get(manifiesto).send().await?.json().await?;
-
-    println!("Hay {} mods actualmente...", mods.len());
-
-    for mod_actual in mods {
-        let destino = mods_folder.join(&mod_actual.filename);
-
-        if destino.exists() {
-            println!("(OK): El mod {} ya está actualizado", &mod_actual.name);
-        } else {
-            println!("El mod {} se está descargando...", &mod_actual.name);
-            descargar_archivo(&cliente, &mod_actual.download_url, &destino).await?;
-            println!("El mod {} ha sido descargado correctamente.", &mod_actual.name);
-        }
-    }
-
-    println!("Sincronización completada.");
-    Ok(())
-}
-
-async fn descargar_archivo(
-    cliente: &reqwest::Client,
-    url: &str,
-    path: &Path
-) -> Result<(), Box<dyn std::error::Error>> {
-    let response = cliente.get(url).send().await?;
-
-    if !response.status().is_success() {
-        return Err(format!(
-            "Error al descargar {}: Código de estado HTTP {}",
-            url,
-            response.status()
-        )
-        .into());
-    }
-    
-    let content = response.bytes().await?;
-
-    let mut archivo = File::create(path)?;
-    archivo.write_all(&content)?;
-
+    println!("modpack_folder: {:?}", modpack_folder.file_name().unwrap());
     Ok(())
 }
