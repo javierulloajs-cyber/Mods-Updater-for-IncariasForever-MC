@@ -4,6 +4,41 @@
     "filename": "[MECANICA]appleskin-fabric-mc1.20.1-2.5.2[INCARIAS MC].jar",
     "download_url": "https://cdn.modrinth.com/data/EsAfCjCV/versions/N5XeV21r/appleskin-fabric-mc1.20.1-2.5.2.jar"
   },
+    {
+    "name": "Valkyrien Skies",
+    "filename": "[MECANICA]valkyrienskies-120-2.4.11[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/V5ujR2yw/versions/qJr3y5vI/valkyrienskies-120-2.4.11.jar"
+  },
+  {
+    "name": "Simple Voice Chat",
+    "filename": "[MECANICA]voicechat-fabric-1.20.1-2.6.22[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/9eGKb6K1/versions/u5T0ji6n/voicechat-fabric-1.20.1-2.6.22.jar"
+  },
+  {
+    "name": "GeckoLib",
+    "filename": "[MECANICA]geckolib-fabric-1.20.1-4.8.4[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/8BmcQJ2H/versions/SD2lOScS/geckolib-fabric-1.20.1-4.8.4.jar"
+  },
+    {
+    "name": "Mutant Monsters",
+    "filename": "[MECANICA]MutantMonsters-v8.0.8-1.20.1-Fabric[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/derP0ten/versions/W1xZlM32/MutantMonsters-v8.0.8-1.20.1-Fabric.jar"
+  },
+  {
+    "name": "Point Blank",
+    "filename": "[MECANICA]pointblank-fabric-1.20.1-1.11.1[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/og4KPYmA/versions/YSzjIQd7/pointblank-fabric-1.20.1-1.11.1.jar"
+  },
+  {
+    "name": "Puzzles Lib",
+    "filename": "[MECANICA]PuzzlesLib-v8.1.33-1.20.1-Fabric[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/QAGBst4M/versions/N8gFdljq/PuzzlesLib-v8.1.33-1.20.1-Fabric.jar"
+  },
+  {
+    "name": "Immersive Aircraft",
+    "filename": "[MECANICA]immersive_aircraft-1.4.1+1.20.1-fabric[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/x3HZvrj6/versions/dNHanmFP/immersive_aircraft-1.5.0%2B1.20.1-fabric.jar"
+  },
   {
     "name": "Architectury API",
     "filename": "[MECANICA]architectury-9.2.14-fabric[INCARIAS MC].jar",
@@ -16,7 +51,7 @@
   },
   {
     "name": "Cloth Config API",
-    "filename": "[MECANICA]cloth-config-1.1.1.136-fabric[INCARIAS MC].jar",
+    "filename": "[MECANICA]cloth-config-11.1.136-fabric[INCARIAS MC].jar",
     "download_url": "https://cdn.modrinth.com/data/9s6osm5g/versions/2xQdCMyG/cloth-config-11.1.136-fabric.jar"
   },
   {
@@ -24,6 +59,10 @@
     "filename": "[MECANICA]eureka-1.20.1-1.6.3[INCARIAS MC].jar",
     "download_url": "https://cdn.modrinth.com/data/EO8aSHxh/versions/aJWa3eWO/eureka-1201-1.6.3.jar"
   },
+
+
+
+
   {
     "name": "Fabric API",
     "filename": "[OPTIMIZACION]fabric-api-0.92.12+1.20.1[INCARIAS MC].jar",
@@ -45,16 +84,6 @@
     "download_url": "https://cdn.modrinth.com/data/uXXizFIs/versions/unerR5MN/ferritecore-6.0.1-fabric.jar"
   },
   {
-    "name": "GeckoLib",
-    "filename": "[MECANICA]geckolib-fabric-1.20.1-4.8.4[INCARIAS MC].jar",
-    "download_url": "https://cdn.modrinth.com/data/8BmcQJ2H/versions/SD2lOScS/geckolib-fabric-1.20.1-4.8.4.jar"
-  },
-  {
-    "name": "Immersive Aircraft",
-    "filename": "[MECANICA]immersive_aircraft-1.4.1+1.20.1-fabric[INCARIAS MC].jar",
-    "download_url": "https://cdn.modrinth.com/data/x3HZvrj6/versions/dNHanmFP/immersive_aircraft-1.5.0%2B1.20.1-fabric.jar"
-  },
-  {
     "name": "Krypton",
     "filename": "[OPTIMIZACION]krypton-0.2.3[INCARIAS MC].jar",
     "download_url": "https://cdn.modrinth.com/data/fQEb0iXm/versions/jiDwS0W1/krypton-0.2.3.jar"
@@ -65,20 +94,33 @@
     "download_url": "https://cdn.modrinth.com/data/nmDcB62a/versions/rPmgLeZC/modernfix-fabric-5.25.2%2Bmc1.20.1.jar"
   },
   {
-    "name": "Mutant Monsters",
-    "filename": "[MECANICA]MutantMonsters-v8.0.8-1.20.1-Fabric[INCARIAS MC].jar",
-    "download_url": "https://cdn.modrinth.com/data/derP0ten/versions/W1xZlM32/MutantMonsters-v8.0.8-1.20.1-Fabric.jar"
+    "name": "ImmediatelyFast",
+    "filename": "[OPTIMIZACION]immediately-fast-1.5.5[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/5ZwdcRci/versions/iwYUrQJO/ImmediatelyFast-Fabric-1.5.5%2B1.20.4.jar"
   },
   {
-    "name": "Point Blank",
-    "filename": "[MECANICA]pointblank-fabric-1.20.1-1.11.1[INCARIAS MC].jar",
-    "download_url": "https://cdn.modrinth.com/data/og4KPYmA/versions/YSzjIQd7/pointblank-fabric-1.20.1-1.11.1.jar"
+    "name": "Lithium",
+    "filename": "[OPTIMIZACION]lithium-0.11.4-for-fabric[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/gvQqBUqZ/versions/iEcXOkz4/lithium-fabric-mc1.20.1-0.11.4.jar"
   },
   {
-    "name": "Puzzles Lib",
-    "filename": "[MECANICA]PuzzlesLib-v8.1.33-1.20.1-Fabric[INCARIAS MC].jar",
-    "download_url": "https://cdn.modrinth.com/data/QAGBst4M/versions/N8gFdljq/PuzzlesLib-v8.1.33-1.20.1-Fabric.jar"
+    "name": "More Culling",
+    "filename": "[OPTIMIZACION]more-culling-1.20.1-0.24.6[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/51shyZVL/versions/MI90wAbW/moreculling-1.20.1-0.24.6.jar"
   },
+  {
+    "name": "Starlight (Fabric)",
+    "filename": "[OPTIMIZACION]starlight-1.1.2-1.20-1.20.1(fabric)[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/H8CaAYZC/versions/XGIsoVGT/starlight-1.1.2%2Bfabric.dbc156f.jar"
+  },
+  {
+    "name": "Yeetus Experimentus",
+    "filename": "[OPTIMIZACION]yeetusexperimentus-fabric-2.3.1+mc1.20.1[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/HaaH232J/versions/PL3wftcT/YeetusExperimentus-Fabric-2.3.1-build.6%2Bmc1.20.1.jar"
+  },
+
+
+
   {
     "name": "SkinRestorer",
     "filename": "[VISUAL]skinrestorer-2.10.0+1.20-fabric[INCARIAS MC].jar",
@@ -88,15 +130,5 @@
     "name": "Iris Shaders",
     "filename": "[VISUAL]iris-1.7.6-for-minecraft-1.20.1[INCARIAS MC].jar",
     "download_url": "https://cdn.modrinth.com/data/YL57xq9U/versions/s5eFLITc/iris-1.7.6%2Bmc1.20.1.jar"
-  },
-  {
-    "name": "Valkyrien Skies",
-    "filename": "[MECANICA]valkyrienskies-120-2.4.11[INCARIAS MC].jar",
-    "download_url": "https://cdn.modrinth.com/data/V5ujR2yw/versions/qJr3y5vI/valkyrienskies-120-2.4.11.jar"
-  },
-  {
-    "name": "Simple Voice Chat",
-    "filename": "[MECANICA]voicechat-fabric-1.20.1-2.6.22[INCARIAS MC].jar",
-    "download_url": "https://cdn.modrinth.com/data/9eGKb6K1/versions/u5T0ji6n/voicechat-fabric-1.20.1-2.6.22.jar"
   }
 ]
