@@ -99,9 +99,10 @@ pub fn eliminar_mods_absoletos(directorio: &PathBuf) -> Result<(), Box<dyn std::
         // De forma corta, si fue parte del modpack (marcado INCARIAS MC) pero ya no está
         // En la lista oficial, será borrado
         if mod_esta_marcado(&mod_name) && !mods_online_list.contains(mod_name) {
+            println!("[MOD UPDATER]: Se eliminó el mod {}.", mod_name);
             fs::remove_file(mod_actual.path())?;
         } else {
-            println!("V Deja mod: {}", mod_name);
+            println!("[MOD UPDATER]: Mod {} ignorado.", mod_name);
         }
     }
 
