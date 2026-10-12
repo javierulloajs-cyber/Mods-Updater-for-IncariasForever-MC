@@ -36,19 +36,16 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Dentro hay un aviso en caso de que no pueda devolver el directorio del modpack
     let modpack_folder = proceso_local::obtener_directorio_correcto(&modpacks_ruta)?;
 
-    //for item in proceso_local::obtener_local_lista_mods(&modpack_folder)? {
-        //println!("Mod: {}", item);
-    //}
-
     // ONLINE
     proceso_de_descarga(&modpack_folder).await?;
-
 
     // LOCAL
     proceso_local::eliminar_mods_absoletos(&modpack_folder)?;
 
     println!("modpack_folder: {:?}", modpack_folder.file_name().unwrap());
 
-    sleep(Duration::from_secs(10));
+    println!("[MOD UPDATER]: Finalizando el programa en la version {PROGRAM_VERSION}...");
+
+    sleep(Duration::from_secs(3));
     Ok(())
 }
