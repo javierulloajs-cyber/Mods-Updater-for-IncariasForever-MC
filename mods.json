@@ -30,6 +30,11 @@
     "download_url": "https://cdn.modrinth.com/data/P7dR8mSH/versions/rvI2dfzR/fabric-api-0.92.12%2B1.20.1.jar"
   },
   {
+    "name": "Sodium",
+    "filename": "[OPTIMIZACION]sodium-0.5.13-for-Fabric[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/AANobbMI/versions/OihdIimA/sodium-fabric-0.5.13%2Bmc1.20.1.jar"
+  },
+  {
     "name": "Fabric Language Kotlin",
     "filename": "[OPTIMIZACION]fabric-language-kotlin-1.13.13+kotlin.2.4.10[INCARIAS MC].jar",
     "download_url": "https://cdn.modrinth.com/data/Ha28R6CL/versions/SKW1BTL3/fabric-language-kotlin-1.14.2%2Bkotlin.2.4.21.jar"
@@ -48,6 +53,11 @@
     "name": "Immersive Aircraft",
     "filename": "[MECANICA]immersive_aircraft-1.4.1+1.20.1-fabric[INCARIAS MC].jar",
     "download_url": "https://cdn.modrinth.com/data/x3HZvrj6/versions/dNHanmFP/immersive_aircraft-1.5.0%2B1.20.1-fabric.jar"
+  },
+  {
+    "name": "Mod Menu",
+    "filename": "[MECANICA]mod-menu-v7.2.2-for-1.20.1[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/mOgUt4GM/versions/lEkperf6/modmenu-7.2.2.jar"
   },
   {
     "name": "Krypton",
