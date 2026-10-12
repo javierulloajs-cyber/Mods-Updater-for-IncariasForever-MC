@@ -18,7 +18,21 @@ pub async fn proceso_de_descarga(directorio: &PathBuf) -> Result<(), Box<dyn std
         .user_agent("IncariasForever-ModsUpdater/2.0.0 (https://github.com/javierulloajs-cyber)")
         .build()?;
 
-    let mods: Vec<ModInfo> = cliente.get(manifiesto).send().await?.json().await?;
+    
+    // Limpiar el archivo oficial de los mods para evitar guardar mods absoletos
+    let official_list_path = &mods_folder.join(OFFICIAL_LIST_FILE);
+    if official_list_path.exists() {
+        fs::remove_file(&mods_folder.join(official_list_path)).expect("[MOD UPDATER]: No se pudo borrar el archivo de lista oficial (sirve para evitar guardar mods absletos).");
+    }
+
+    let mods: Vec<ModInfo> = cliente
+        .get(manifiesto)
+        .send()
+        .await
+        .expect("[MOD UPDATE]: No se pudo extraer el Response del 'cliente'.")
+        .json()
+        .await
+        .expect("[MOD UPDATER]: No se pudo extraer el json para un vector.");
 
     println!("Hay {} mods actualmente...", mods.len());
 
@@ -89,7 +103,6 @@ fn write_file_official_list(directorio: &PathBuf, actual_mod: &ModInfo)
         .create(true)
         .append(true)
         .open(&file_path)?;
-
     writeln!(archivo, "{}", actual_mod.filename)?;
 
     Ok(())
