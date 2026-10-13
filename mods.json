@@ -122,6 +122,11 @@
 
 
   {
+    "name": "Better Waypoints (Funnest's Edition)",
+    "filename": "[VISUAL]better-waypoints-mc-1.20.1-3.3.0[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/IcN9gtc5/versions/SitXFHKy/better-waypoints-mc1.20.1-3.3.0.jar?mr_download_reason=standalone&mr_game_version=1.20.1"
+  },
+  {
     "name": "SkinRestorer",
     "filename": "[VISUAL]skinrestorer-2.10.0+1.20-fabric[INCARIAS MC].jar",
     "download_url": "https://cdn.modrinth.com/data/ghrZDhGW/versions/NJGwLsY2/skinrestorer-2.10.0%2B1.20-fabric.jar"
