@@ -118,6 +118,31 @@
     "filename": "[OPTIMIZACION]yeetusexperimentus-fabric-2.3.1+mc1.20.1[INCARIAS MC].jar",
     "download_url": "https://cdn.modrinth.com/data/HaaH232J/versions/PL3wftcT/YeetusExperimentus-Fabric-2.3.1-build.6%2Bmc1.20.1.jar"
   },
+  {
+    "name": "Entity Culling",
+    "filename": "[OPTIMIZACION]entityculling-fabric-1.11.3-mc1.20.1[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/NNAgCjsB/versions/xSrd3qsM/entityculling-fabric-1.11.3-mc1.20.1.jar"
+  },
+  {
+    "name": "Concurrent Chunk Management Engine",
+    "filename": "[OPTIMIZACION]c2me-fabric-mc1.20.1-0.2.0-alpha.11.18[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/VSNURh3q/versions/fyt7FtgA/c2me-fabric-mc1.20.1-0.2.0%2Balpha.11.18.jar"
+  },
+  {
+    "name": "Clumps",
+    "filename": "[OPTIMIZACION]clumps-fabric-1.20.1-12.0.0.4[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/Wnxd13zP/versions/hefSwtn6/Clumps-fabric-1.20.1-12.0.0.4.jar"
+  },
+  {
+    "name": "Dynamic FPS",
+    "filename": "[OPTIMIZACION]dynamic-fps-3.11.4-2bminecraft-1.20.0-fabric[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/LQ3K71Q1/versions/QwPQBhiQ/dynamic-fps-3.11.4%2Bminecraft-1.20.0-fabric.jar"
+  },
+  {
+    "name": "LazyDFU",
+    "filename": "[OPTIMIZACION]lazydfu-0.1.3[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/hvFnDODi/versions/0.1.3/lazydfu-0.1.3.jar"
+  },
 
 
 
