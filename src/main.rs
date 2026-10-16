@@ -1,4 +1,4 @@
-use std::{thread::sleep, time::Duration};
+use std::{env, thread::sleep, time::Duration};
 
 use serde::{Deserialize};
 
@@ -26,9 +26,11 @@ pub struct ModInfo {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let argumentos_opcionales = std::env::args().collect::<Vec<String>>();
+
     println!("[MOD UPDATER]: Iniciando el programa en la version {PROGRAM_VERSION}...");
 
-    sistema_actualizacion::actualizar_programa().await?;
+    sistema_actualizacion::actualizar_programa(&argumentos_opcionales).await?;
 
     // LOCAL
     let modpacks_ruta = proceso_local::obtener_ruta_modpacks();

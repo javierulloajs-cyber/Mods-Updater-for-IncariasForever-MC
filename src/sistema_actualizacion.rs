@@ -32,7 +32,15 @@ struct Asset {
     browser_download_url: String,
 }
 
-pub async fn actualizar_programa() -> Result<()> {
+pub async fn actualizar_programa(argumentos_opcionales: &Vec<String>) -> Result<()> {
+    // Evita avanzar en caso de que el argumento este activo
+    let arg_bloqued_version = argumentos_opcionales.get(1);
+    if arg_bloqued_version.is_some() {
+        if arg_bloqued_version.unwrap().eq("--b") { return Ok(()); }
+        else { println!("[MOD UPDATER]: Se introdujo un argumento invalido. ¿Quisiste usar '--b'?") }
+    }
+        
+
     // Espera un segundo antes de empezar el sistema de actualización
     // Es asi por que en caso de que se haya ejecutado desde la terminal de una
     // versión anterior esa necesita tiempo para cerrarse, así que este tiempo
