@@ -5,17 +5,15 @@ use serde::{Deserialize};
 mod sistema_actualizacion;
 mod proceso_online;
 mod proceso_local;
+mod crear_perfil_local;
 
 use proceso_online::*;
 
 pub const PROGRAM_FILE_NAME: &str = env!("CARGO_PKG_NAME");
-
 pub const PROGRAM_VERSION: &str = env!("CARGO_PKG_VERSION");
-
 pub const OFFICIAL_LIST_FILE: &str = "official_list.txt";
-
-pub const MODPACK_FOLDER_TAG: &str = "Incarias_MC_Modpack.txt";
-
+pub const MODPACK_FOLDER_TAG: &str = "Incarias_MC_Modded";
+// Agregaar los shaderspacks y mis opciones personalizadas
 
 #[derive(Debug, Deserialize)]
 pub struct ModInfo {
@@ -30,10 +28,17 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     println!("[MOD UPDATER]: Iniciando el programa en la version {PROGRAM_VERSION}...");
 
+    // SIEMPRE DEBE EJECUTARSE ANTES QUE CUALQUIER OTRA COSA (sin contar recoleción de argumentos)
     sistema_actualizacion::actualizar_programa(&argumentos_opcionales).await?;
 
     // LOCAL
+    let minecraft_folder_ruta = proceso_local::obtener_ruta_minecraft_folder();
+
+    // Dirige a donde estan las rutas de el modpack
     let modpacks_ruta = proceso_local::obtener_ruta_modpacks();
+
+    // Creación del perfil de versión local
+    crear_perfil_local::agregar_modpack_launcher(&minecraft_folder_ruta)?;
 
     // Dentro hay un aviso en caso de que no pueda devolver el directorio del modpack
     let modpack_folder = proceso_local::obtener_directorio_correcto(&modpacks_ruta)?;

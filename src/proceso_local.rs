@@ -2,14 +2,22 @@ use std::{ffi::OsStr, fs::{self, File}, io::{BufRead, BufReader}, path::PathBuf}
 
 use crate::{MODPACK_FOLDER_TAG, OFFICIAL_LIST_FILE, PROGRAM_VERSION};
 
-// Busca la carpeta de los modpacks (Proximamente: Indpependientemente de la plataforma)
-pub fn obtener_ruta_modpacks() -> PathBuf {
+// Busca la carpeta de mc (Indpependientemente de la plataforma)
+pub fn obtener_ruta_minecraft_folder() -> PathBuf {
+    #[cfg(target_os = "windows")]
     let appdata = dirs::data_dir()
         .expect("[J]: No se pudo obtener APPDATA.");
 
-    let ruta_modpacks = appdata.join(".minecraft").join("modpacks"); 
+    #[cfg(target_os = "linux")]
+    let appdata = dirs::home_dir()
+        .expect("[J]: No se pudo obtener HOME_DIR.");
 
-    ruta_modpacks
+    appdata.join(".minecraft")
+}
+
+// Busca la carpeta de los modpacks
+pub fn obtener_ruta_modpacks() -> PathBuf {
+    obtener_ruta_minecraft_folder().join("modpacks")
 }
 
 // Se encarga de devolver el folder en el que trabajará
@@ -28,7 +36,7 @@ pub fn obtener_directorio_correcto(modpack_folder: &PathBuf) -> Result<PathBuf, 
             }
         }
 
-    Err(format!("[Mods updater]: Asegurate de que el modpack esté instalado. Ya que no se encontró el archivo '{}' en ninguna carpeta.", MODPACK_FOLDER_TAG).into())
+    Err(format!("[MOD UPDATER]: Asegurate de que el modpack esté instalado. Ya que no se encontró el folder '{}' en ninguna carpeta.", MODPACK_FOLDER_TAG).into())
 }
 
 // Retorna true solo si existe el archivo Incarias_MC_Modpack.txt
@@ -37,7 +45,8 @@ pub fn esta_archivo_tag(folder: &PathBuf) -> bool {
         let archivo = archivo.expect("[J]: No se puede ver el archivo").path();
         let filename = archivo.file_name().unwrap().to_string_lossy().to_string();
 
-        if filename.eq("Incarias_MC_Modpack.txt") {
+        let file_tag = format!("{}.txt", MODPACK_FOLDER_TAG);
+        if filename.eq(&file_tag) {
             return true;
         }
     }
@@ -116,7 +125,7 @@ fn _imprimir_contenido_directorio(directorio: &PathBuf, pref: &str) -> Result<()
         let item = item?.path();
         let file_name = item.file_name();
 
-        if file_name.unwrap().to_str().unwrap().contains(MODPACK_FOLDER_TAG) {
+        if item.is_dir() && item.file_name().unwrap().to_string_lossy().contains(MODPACK_FOLDER_TAG) {
             println!("{pref}: {:?} <-------", file_name);
             if fs::read_to_string(&item)?.contains(PROGRAM_VERSION) { println!(" ¡Es este!")}
             continue;

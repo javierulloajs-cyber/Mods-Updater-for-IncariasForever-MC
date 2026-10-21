@@ -15,7 +15,7 @@ pub async fn proceso_de_descarga(directorio: &PathBuf) -> Result<(), Box<dyn std
     println!("Obteniendo lista de mods...");
 
     let cliente = reqwest::Client::builder()
-        .user_agent("IncariasForever-ModsUpdater/2.0.0 (https://github.com/javierulloajs-cyber)")
+        .user_agent("IncariasForever-ModUpdater/2.0.0 (https://github.com/javierulloajs-cyber)")
         .build()?;
 
     
