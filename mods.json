@@ -227,5 +227,40 @@
     "filename": "ComplementaryReimagined_r5.9.3.zip[INCARIAS MC].jar",
     "download_url": "https://cdn.modrinth.com/data/HVnmMxH1/versions/Bqen1mJX/ComplementaryReimagined_r5.9.3.zip",
     "folder": "shaderpacks"
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "name": "options",
+    "filename": "options.txt",
+    "download_url": "https://download947.mediafire.com/ha7kz176i8dgjsCoPhZ33G6YNNSSmf-7WcOdzP8O54ARKkJgEg0YTlL5ENVAqnCxXYn5b_dxOPHJPdK53QuIl9WHv9b66Bd5VJ9FOZzYbX7KOQu4fy_3mH2x23HZkmrShVx7rfQ21LvE4mWv7RRffgZzF7S-9cjHMtYVF7HXRUgNC70/fh16ikr0bo8rt5j/options.txt",
+    "folder": "raiz"
+  },
+  {
+    "name": "servers",
+    "filename": "servers.dat",
+    "download_url": "https://download1584.mediafire.com/ztahaenk25pgSbHWR8JqVpi16jsne_00moM_l6Wtw3ONaddR4SYNgRKgoU8JqHpJ-RhP254pkfKZjTonsVw1aJiZGiQt44lDO8SG1jublaGD8QfujamtSTbPpCBz7L7T32fWcf2TMd93tJtQGXxlX7-jjvmxwsFDp666TsDywMhxLCA/aeymu3oeclqqwds/servers.dat",
+    "folder": "raiz"
   }
 ]
