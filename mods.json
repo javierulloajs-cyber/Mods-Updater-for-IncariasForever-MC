@@ -260,19 +260,19 @@
   {
     "name": "options",
     "filename": "options.txt",
-    "download_url": "https://download1530.mediafire.com/4v8grwren8ugWJ5CnGf31I5rQa6QVHcYwGOscP8WYkuKq9aqox0i2ukcqUAXAOFUZMNNYd8bxfwtwdvIJaFhedwaSsim7igPh1xjDECf4KgESkIQrs1Me67_pRVdaquLFEhe9P82jbleZxUjC-4786nETQQSE30rOdfD6nN-XE0RYHM/r3cx1jdgs9nm9tz/options.txt",
+    "download_url": "https://github.com/javierulloajs-cyber/Minecraft-Javier-s-server-dependences/releases/download/1.0/options.txt",
     "folder": ["raiz"]
   },
   {
     "name": "servers",
     "filename": "servers.dat",
-    "download_url": "https://download1980.mediafire.com/ylkwfxpgbeegEYd5e9JN2UFosgcPcvV0Dqv9avqrvNZSAh1gjF7ezK5yjECu6dN382tSoYm9AwbCJpQGGMwkj8wmAv9qRI5cyN5dTY15ejY9OCjiPFdktg2LWa7NpVmKLgsNYbsemDx9-ZVWj-v3EyFsXg-mX556uNFb6FpSrDBwDt4/iotj1sajggk1ted/servers.dat",
+    "download_url": "https://github.com/javierulloajs-cyber/Minecraft-Javier-s-server-dependences/releases/download/1.0/servers.dat",
     "folder": ["raiz"]
   },
   {
     "name": "voicechat-client.properties",
     "filename": "voicechat-client.properties",
-    "download_url": "https://download1585.mediafire.com/urjmiqjzpthgZX7CCJjyH-snaDZPAlO9tF45vb7j7NGAhm5EDXTokASbTxCn-hiURBcIc6mPov8kDkVlcP0Ky1yzenVnntyjgp4rSPuLCxgMsP3jcd1qZ1fQdLWoEoR4GPKJOy-jiu0-r3xvv0j6FL_Dvf3T1Q74ECsmiQn0-NVZkQQ/qbluluu668chqvl/voicechat-client.properties",
+    "download_url": "https://github.com/javierulloajs-cyber/Minecraft-Javier-s-server-dependences/releases/download/1.0/voicechat-client.properties",
     "folder": ["config", "voicechat"]
   }
 ]
