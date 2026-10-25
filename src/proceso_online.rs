@@ -6,18 +6,6 @@ pub async fn proceso_de_descarga(modpack_directorio: &PathBuf) -> Result<(), Box
     
     let manifiesto = "https://raw.githubusercontent.com/javierulloajs-cyber/Mods-Updater-for-IncariasForever-MC/main/mods.json";
 
-    /*
-    let mods_folder = modpack_directorio.join("mods");
-    if !mods_folder.exists() {
-        tokio::fs::create_dir_all(&mods_folder).await?;
-    }
-
-    let shaderpacks_folder = modpack_directorio.join("shaderpacks");
-    if !shaderpacks_folder.exists() {
-        tokio::fs::create_dir_all(shaderpacks_folder).await?;
-    }
-    */
-
     println!("Obteniendo lista de mods...");
 
     let cliente = reqwest::Client::builder()
@@ -46,15 +34,11 @@ pub async fn proceso_de_descarga(modpack_directorio: &PathBuf) -> Result<(), Box
     for item_actual in mods {
         write_file_official_list(&mods_folder, &item_actual)?;
 
-        let folder_adapted = get_ruta_descarga(&item_actual.folder);
-        println!("FOLDER: {:?}", &folder_adapted);
+        let sub_folder = get_ruta_descarga(&item_actual.folder);
+        let sub_folder_string = &sub_folder.to_string_lossy().to_string();
         
-        match folder_adapted.to_string_lossy().to_string().as_str() {
-            "mods" => descargar_archivo_universal(&cliente, &item_actual, modpack_directorio, folder_adapted, "mod").await?,
-            "shaderpacks" => descargar_archivo_universal(&cliente, &item_actual, modpack_directorio, folder_adapted, "shader").await?,
-            "." => descargar_archivo_universal(&cliente, &item_actual, modpack_directorio, folder_adapted, "archivo/otro").await?,
-            _=> continue
-        }
+        // se convierte a str temporalmente para comprobar los diversos casos
+        descargar_archivo_universal(&cliente, &item_actual, modpack_directorio, sub_folder, sub_folder_string).await?;
     }
 
     println!("Sincronización completada.");
@@ -65,7 +49,7 @@ pub async fn proceso_de_descarga(modpack_directorio: &PathBuf) -> Result<(), Box
 
 // Funciones semi-auxiliares
 async fn descargar_archivo_universal(cliente: &reqwest::Client, item_actual: &ItemInfo, modpack_directorio: &PathBuf, subcarpeta: PathBuf, categoria: &str) -> Result<(), Box<dyn std::error::Error>> {
-    let carpeta_destino: PathBuf = if subcarpeta == PathBuf:: from(".") {
+    let carpeta_destino: PathBuf = if subcarpeta == PathBuf:: from("raiz") {
         modpack_directorio.clone()
     } else {
         modpack_directorio.join(&subcarpeta)
@@ -76,16 +60,13 @@ async fn descargar_archivo_universal(cliente: &reqwest::Client, item_actual: &It
     }
 
     let destino = carpeta_destino.join(&item_actual.filename);
-    
-
-    println!("Debug: Carpeta destino: {:?}", destino);
 
     if destino.exists() {
-        println!("[MOD UPDATER]: El {categoria} '{}' ya está actualizado.", &item_actual.name);
+        println!("[MOD UPDATER]: El archivo de categoria {categoria} '{}' ya está actualizado.", &item_actual.name);
     } else {
-        println!("[MOD UPDATER]: El {categoria} '{}' se está descargando...", &item_actual.name);
+        println!("[MOD UPDATER]: El archivo de categoria {categoria} '{}' se está descargando...", &item_actual.name);
         descargar_archivo(&cliente, &item_actual.download_url, &destino).await?;
-        println!("[MOD UPDATER]: El {categoria} '{}' ha sido descargado correctamente.", &item_actual.name);
+        println!("[MOD UPDATER]: El archivo de categoria {categoria} '{}' ha sido descargado correctamente.", &item_actual.name);
     }
     Ok(())
 }

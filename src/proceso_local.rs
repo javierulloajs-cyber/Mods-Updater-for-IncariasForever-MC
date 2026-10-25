@@ -27,7 +27,7 @@ pub fn obtener_directorio_correcto(modpack_folder: &PathBuf) -> Result<PathBuf, 
         for item in modpack_folder.read_dir()? {
             let item = item?.path();
 
-            //imprimir_contenido_directorio(&item, "  Sub")?;
+            //_imprimir_contenido_directorio(&item, "  Sub")?;
 
             // Si el modpack contiene el archivo Incarias_MC_Modpack.txt
             // devolverá el folder. Si no, no
@@ -87,8 +87,6 @@ pub fn eliminar_mods_absoletos(directorio: &PathBuf) -> Result<(), Box<dyn std::
     for linea in official_list.lines() {
         mods_online_list.push_str(&linea?);
     }
-
-    //let mods_local_list = obtener_local_lista_mods(&ruta)?;
 
     for mod_actual in ruta.read_dir().expect("[J]: No se pudo acceder a la carpeta.") {
         let mod_actual = mod_actual.expect("[J]: No se puede extraer el mod.");
