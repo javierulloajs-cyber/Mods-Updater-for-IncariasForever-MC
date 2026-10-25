@@ -16,10 +16,11 @@ pub const MODPACK_FOLDER_TAG: &str = "Incarias_MC_Modded";
 // Agregaar los shaderspacks y mis opciones personalizadas
 
 #[derive(Debug, Deserialize)]
-pub struct ModInfo {
+pub struct ItemInfo {
     name: String,
     filename: String,
-    download_url: String
+    download_url: String,
+    folder: String
 }
 
 #[tokio::main]

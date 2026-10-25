@@ -1,15 +1,21 @@
 use std::{fs::{self, File, OpenOptions}, io::Write, path::{Path, PathBuf}};
 
-use crate::{ModInfo, OFFICIAL_LIST_FILE};
+use anyhow::Result;
 
-pub async fn proceso_de_descarga(directorio: &PathBuf) -> Result<(), Box<dyn std::error::Error>> {
+use crate::{ItemInfo, OFFICIAL_LIST_FILE};
+
+pub async fn proceso_de_descarga(modpack_directorio: &PathBuf) -> Result<(), Box<dyn std::error::Error>> {
     
     let manifiesto = "https://raw.githubusercontent.com/javierulloajs-cyber/Mods-Updater-for-IncariasForever-MC/main/mods.json";
 
-    let mods_folder = directorio.join("mods");
-
+    let mods_folder = modpack_directorio.join("mods");
     if !mods_folder.exists() {
         tokio::fs::create_dir_all(&mods_folder).await?;
+    }
+
+    let shaderpacks_folder = modpack_directorio.join("shaderpacks");
+    if !shaderpacks_folder.exists() {
+        tokio::fs::create_dir_all(shaderpacks_folder).await?;
     }
 
     println!("Obteniendo lista de mods...");
@@ -25,7 +31,7 @@ pub async fn proceso_de_descarga(directorio: &PathBuf) -> Result<(), Box<dyn std
         fs::remove_file(&mods_folder.join(official_list_path)).expect("[MOD UPDATER]: No se pudo borrar el archivo de lista oficial (sirve para evitar guardar mods absletos).");
     }
 
-    let mods: Vec<ModInfo> = cliente
+    let mods: Vec<ItemInfo> = cliente
         .get(manifiesto)
         .send()
         .await
@@ -36,17 +42,14 @@ pub async fn proceso_de_descarga(directorio: &PathBuf) -> Result<(), Box<dyn std
 
     println!("Hay {} mods actualmente...", mods.len());
 
-    for mod_actual in mods {
-        let destino = mods_folder.join(&mod_actual.filename);
+    for item_actual in mods {
+        write_file_official_list(&mods_folder, &item_actual)?;
 
-        write_file_official_list(&mods_folder, &mod_actual)?;
-
-        if destino.exists() {
-            println!("[MOD UPDATER]: El mod {} ya está actualizado.", &mod_actual.name);
-        } else {
-            println!("[MOD UPDATER]: El mod {} se está descargando...", &mod_actual.name);
-            descargar_archivo(&cliente, &mod_actual.download_url, &destino).await?;
-            println!("El mod {} ha sido descargado correctamente.", &mod_actual.name);
+        match item_actual.folder.as_str() {
+            "mods" => descargar_archivo_caso_mods(&cliente, &item_actual, &modpack_directorio).await?,
+            "shaderpacks" => descargar_archivo_caso_shaderpacks(&cliente, &item_actual, &modpack_directorio).await?,
+            "raiz" => descargar_archivo_caso_raiz(&cliente, &item_actual, &modpack_directorio).await?,
+            _=> continue
         }
     }
 
@@ -55,8 +58,53 @@ pub async fn proceso_de_descarga(directorio: &PathBuf) -> Result<(), Box<dyn std
 }
 
 
-// Funciones auxiliares
 
+// Funciones semi-auxiliares
+async fn descargar_archivo_caso_mods(cliente: &reqwest::Client, item_actual: &ItemInfo, modpack_directorio: &PathBuf) -> Result<(), Box<dyn std::error::Error>> {
+    let destino = modpack_directorio.join("mods").join(&item_actual.filename);
+
+    if destino.exists() {
+        println!("[MOD UPDATER]: El mod '{}' ya está actualizado.", &item_actual.name);
+    } else {
+        println!("[MOD UPDATER]: El mod '{}' se está descargando...", &item_actual.name);
+        descargar_archivo(&cliente, &item_actual.download_url, &destino).await?;
+        println!("[MOD UPDATER]: El mod '{}' ha sido descargado correctamente.", &item_actual.name);
+    }
+    Ok(())
+}
+
+/* Error actual: [MOD UPDATER]: El shader 'Complementary Shaders Reimagined' se está descargando...
+Error: Os { code: 3, kind: NotFound, message: "El sistema no puede encontrar la ruta especificada." }
+
+Vamos, ¡YO PUEDO!
+*/
+async fn descargar_archivo_caso_shaderpacks(cliente: &reqwest::Client, item_actual: &ItemInfo, modpack_directorio: &PathBuf) -> Result<(), Box<dyn std::error::Error>> {
+    let destino = modpack_directorio.join("shaderpacks").join(&item_actual.filename);
+
+    if destino.exists() {
+        println!("[MOD UPDATER]: El shader '{}' ya está actualizado.", &item_actual.name);
+    } else {
+        println!("[MOD UPDATER]: El shader '{}' se está descargando...", &item_actual.name);
+        descargar_archivo(&cliente, &item_actual.download_url, &destino).await?;
+        println!("[MOD UPDATER]: El shader '{}' ha sido descargado correctamente.", &item_actual.name);
+    }
+    Ok(())
+}
+
+async fn descargar_archivo_caso_raiz(cliente: &reqwest::Client, item_actual: &ItemInfo, modpack_directorio: &PathBuf) -> Result<(), Box<dyn std::error::Error>> {
+    let destino = modpack_directorio.join(&item_actual.filename);
+
+    if destino.exists() {
+        println!("[MOD UPDATER]: El archivo '{}' ya está actualizado.", &item_actual.name);
+    } else {
+        println!("[MOD UPDATER]: El archivo '{}' se está descargando...", &item_actual.name);
+        descargar_archivo(&cliente, &item_actual.download_url, &destino).await?;
+        println!("[MOD UPDATER]: El archivo '{}' ha sido descargado correctamente.", &item_actual.name);
+    }
+    Ok(())
+}
+
+// Funciones auxiliares
 async fn descargar_archivo(
     cliente: &reqwest::Client,
     url: &str,
@@ -81,7 +129,9 @@ async fn descargar_archivo(
     Ok(())
 }
 
-fn write_file_official_list(directorio: &PathBuf, actual_mod: &ModInfo) 
+
+
+fn write_file_official_list(directorio: &PathBuf, actual_mod: &ItemInfo) 
     -> Result<(), Box<dyn std::error::Error>>
 {
     let file_path = directorio.join(OFFICIAL_LIST_FILE);
