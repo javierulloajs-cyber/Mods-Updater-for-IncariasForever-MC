@@ -198,6 +198,18 @@
     "download_url": "https://cdn.modrinth.com/data/u6dRKJwZ/versions/YRfUnbXb/jei-1.20.1-fabric-15.56.0.205.jar",
     "folder": ["mods"]
   },
+  {
+    "name": "[EMF] Entity Model Features",
+    "filename": "[VISUAL]entity_model_features-3.3.12-1.20.1-fabric[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/4I1XuqiY/versions/kIXaZJr8/entity_model_features-3.3.12-1.20.1-fabric.jar",
+    "folder": ["mods"]
+  },
+  {
+    "name": "[ETF] Entity Texture Features",
+    "filename": "[VISUAL]entity_texture_features-7.2.6-1.20.1-fabric[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/BVzZfTc1/versions/kWWzrS7Z/entity_texture_features-7.2.6-1.20.1-fabric.jar",
+    "folder": ["mods"]
+  },
 
 
 
