@@ -20,7 +20,7 @@ pub struct ItemInfo {
     name: String,
     filename: String,
     download_url: String,
-    folder: String
+    folder: Vec<String>
 }
 
 #[tokio::main]
