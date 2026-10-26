@@ -210,6 +210,12 @@
     "download_url": "https://cdn.modrinth.com/data/BVzZfTc1/versions/kWWzrS7Z/entity_texture_features-7.2.6-1.20.1-fabric.jar",
     "folder": ["mods"]
   },
+  {
+    "name": "CICADA ",
+    "filename": "[VISUAL]cicada-lib-0.14.3[INCARIAS MC].jar",
+    "download_url": "https://cdn.modrinth.com/data/IwCkru1D/versions/BWXjXtWI/cicada-lib-0.14.3%2B1.20.1.jar",
+    "folder": ["mods"]
+  },
 
 
 
